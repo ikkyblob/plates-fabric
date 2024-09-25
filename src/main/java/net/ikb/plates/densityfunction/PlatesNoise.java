@@ -180,6 +180,6 @@ public class PlatesNoise {
                 bonus = -((closestValue - closeValue) * (1 - distRel / spread));
             return closestValue + bonus - 1;
         }
-        return plateBaseValue(closestHash) + contBias - 1;
+        return plateBaseValue(closestHash) - 1;
     }
 }
