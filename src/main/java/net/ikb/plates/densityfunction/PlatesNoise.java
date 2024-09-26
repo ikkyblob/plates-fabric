@@ -178,6 +178,8 @@ public class PlatesNoise {
             }
             else if (closestValue > closeValue && (dirRel < 0 || (dirClosestX == dirCloseX && dirClosestZ == dirCloseZ))) //as long as this is the taller plate and they're either rifting or co-moving
                 bonus = -((closestValue - closeValue) * (1 - distRel / spread));
+            else if (distRel * 4 <= spread && closestValue > closeValue) //defaults to transform, which has a more abrupt change
+                bonus = -((closestValue - closeValue) * (1 - (distRel * 4) / spread));
             return closestValue + bonus - 1;
         }
         return plateBaseValue(closestHash) - 1;
